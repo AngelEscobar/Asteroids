@@ -147,5 +147,22 @@ public class Asteroids {
 	/***
 	 * drawAsteroids called by applet update event
 	 ***/
+	public void drawAsteroids() {
+		
+		//iterate through the asteroids array
+		for (int n = 0; n < ASTEROIDS; n++) {
+			
+			//is this asteroids being used?
+			if (ast[n].isAlive()) {
+				
+				//drawnthe asteroid
+				g2d.setTransform(identity);
+				g2d.translate(ast[n].getX(), ast[n].getY());
+				g2d.rotate(Math.toRadians(ast[n].getMoveAngle()));
+				g2d.setColor(Color.DARK_GRAY);
+				g2d.fill(ast[n].getShape());
+			}
+		}
+	}
 
 }
